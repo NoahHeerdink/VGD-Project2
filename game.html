@@ -1,4 +1,4 @@
-<!-- 
+<!--
 http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-part-tw/
  -->
 <!doctype html>
@@ -54,31 +54,53 @@ http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-p
 		width: 50,
 		height: height
 	});
-
+	// highest bar
 	boxes.push({
-		x: 120,
-		y: 10,
-		width: 80,
-		height: 80
-	});
-	boxes.push({
-		x: 170,
+		x: 50,
 		y: 50,
-		width: 80,
-		height: 80
+		width: 900,
+		height: 8
+	});
+	// 2nd bars
+	boxes.push({
+		x: 50,
+		y: 200,
+		width: 400,
+		height: 8
 	});
 	boxes.push({
-		x: 320,
-		y: 100,
-		width: 80,
-		height: 80
+		x: 550,
+		y: 200,
+		width: 400,
+		height: 8
+	});
+	// 3rd bars
+	boxes.push({
+		x: 50,
+		y: 350,
+		width: 300,
+		height: 8
 	});
 	boxes.push({
-		x: 270,
-		y: 150,
-		width: 40,
-		height: 40
+		x: 650,
+		y: 350,
+		width: 300,
+		height: 8
 	});
+	// 4th bars
+	boxes.push({
+		x: 50,
+		y: 500,
+		width: 200,
+		height: 8
+	});
+	boxes.push({
+		x: 650,
+		y: 500,
+		width: 200,
+		height: 8
+	});
+
 
 	canvas.width = width;
 	canvas.height = height;
@@ -112,11 +134,11 @@ http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-p
 		ctx.clearRect(0, 0, width, height);
 		ctx.fillStyle = "black";
 		ctx.beginPath();
-		
+
 		player.grounded = false;
 		for (var i = 0; i < boxes.length; i++) {
 			ctx.rect(boxes[i].x, boxes[i].y, boxes[i].width, boxes[i].height);
-			
+
 			var dir = colCheck(player, boxes[i]);
 
 			if (dir === "l" || dir === "r") {
@@ -130,11 +152,11 @@ http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-p
 			}
 
 		}
-		
+
 		if(player.grounded){
 			 player.velY = 0;
 		}
-		
+
 		player.x += player.velX;
 		player.y += player.velY;
 
